@@ -40,7 +40,7 @@ Include in configuration:
 To use in C# configure the `IHostBuilder`:
 
 ```cs
- var builder = //_host = 
+ var builder = 
             Host.
             CreateDefaultBuilder().
             ConfigureServices((context, services) =>
