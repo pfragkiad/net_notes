@@ -43,10 +43,6 @@ To use in C# configure the `IHostBuilder`:
  var builder = //_host = 
             Host.
             CreateDefaultBuilder().
-            //UseWindowsService(options => //requires Microsoft.Extensions.Hosting.WindowsServices NUGET
-            //options.ServiceName = "Ucare").
-            //not needed for defaultbuilder
-            //ConfigureAppConfiguration(builder => CreateBuilder(builder)).
             ConfigureServices((context, services) =>
             {
                 services
@@ -54,7 +50,6 @@ To use in C# configure the `IHostBuilder`:
                 //.AddLogging(o => o.AddConsole())
                 .Configure<UcareOptions>(context.Configuration.GetSection(UcareOptions.UcareOptionsSection))
                 //.Configure<HostOptions>(options => options.ShutdownTimeout = TimeSpan.FromSeconds(15))
-                //.Configure<HostOptions>(context.Configuration.GetSection("HostOptions"))
                 .....  
                 ;
             }).UseSerilog((context, configuration) =>
