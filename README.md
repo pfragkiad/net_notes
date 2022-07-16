@@ -29,7 +29,7 @@ Include in configuration:
       {
         "Name": "File",
         "Args": {
-          "path": "logs/ucare.txt",
+          "path": "logs/logfile_project.txt",
           "rollingInterval": "Hour"
         }
       }
