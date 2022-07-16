@@ -14,7 +14,7 @@ Default logging json does not affect Serilog.
 
 # Serilog
 
-To use Serilog include the package `Serilog.AspNetCore`. In the `appsettings.json` configuration file, include the following section:
+To use Serilog, include the package `Serilog.AspNetCore`. In the `appsettings.json` configuration file, include the following section:
 
 ```json
  "Serilog": {
