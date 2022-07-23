@@ -64,3 +64,18 @@ To use in C# configure the `IHostBuilder`:
             }); //IHostBuilder
 
 ```
+
+# Winforms logging with `ILogger`
+
+The project file of the class library should be edited to allow the use of Windows Forms controls. Also, the project type should be bound to Windows:
+```xml
+<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+	<PropertyGroup>
+		<TargetFramework>net6.0-windows</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<UseWindowsForms>true</UseWindowsForms>
+	</PropertyGroup>
+</Project>
+
+```
