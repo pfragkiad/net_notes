@@ -81,6 +81,7 @@ The project file of the class library should be edited to allow the use of Windo
 ```
 
 The dependencies should appear as below:
+
 ![Project dependencies](img/windowsforms.png "WindowsForms dependency").
 
 
