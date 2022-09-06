@@ -65,6 +65,21 @@ To use in C# configure the `IHostBuilder`:
 
 ```
 
+# .NET Core project with Windows.Forms support
+
+Edit the project file as shown below (the `PropertyGroup` is a child node of `Project`:
+We change the target framework to `net6.0-windows` and we add the `UseWindowsForms` node and set the content to `true`.
+
+```xml
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+  </PropertyGroup>
+```
+
 # Winforms logging with `ILogger`
 
 The project file of the class library should be edited to allow the use of Windows Forms controls. Also, the project type should be bound to Windows:
