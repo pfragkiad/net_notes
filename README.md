@@ -1,4 +1,4 @@
-
+va
 
 # Configuration
 
@@ -7,12 +7,22 @@
 `CustomOptions.CustomOptionsSection` is assumed to be the string of the top level correspoding element within the settings json file.
 
 ```cs
-   public static IServiceCollection AddCrossynServices(
-        this IServiceCollection services, HostBuilderContext context)
-    {
-        return services
-            .Configure<CustomOptions>(context.Configuration.GetSection(CustomOptions.CustomOptionsSection))
-    }
+public static IServiceCollection AddCustomOptions(
+this IServiceCollection services, HostBuilderContext context)
+{
+return services
+    .Configure<CustomOptions>(context.Configuration.GetSection(CustomOptions.CustomOptionsSection))
+}
+...    
+    
+var host = Host
+.CreateDefaultBuilder()
+.ConfigureServices( (context, services) =>
+{
+    services.AddCustomOptions(context);
+}
+).Build()
+
 ```
 
 ## 2 quick ways to create App with appsettings.json configured
