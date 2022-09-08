@@ -43,6 +43,14 @@ Default logging json does not affect Serilog.
   }
 ```
 
+## Create custom logger in static context
+
+```cs
+IHost app = Host.CreateDefaultBuilder(args).Build();
+...
+var logger = app.Services.GetRequiredService<ILoggerFactory>().CreateLogger("Program");
+```
+
 ## Serilog
 
 To use Serilog, include the package `Serilog.AspNetCore`. In the `appsettings.json` configuration file, include the following section:
