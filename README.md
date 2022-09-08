@@ -1,5 +1,17 @@
 # net_notes
 
+# 2 quick ways to create App with appsettings.json configured
+
+Create a host container:
+```cs
+IHost app = Host.CreateDefaultBuilder(args).Build();
+var config = app.Services.GetService<IConfiguration>();
+```
+Create a configuration only without any other service:
+```cs
+var config = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
+```
+
 # Default loggging
 
 Default logging json does not affect Serilog.
