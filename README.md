@@ -1,6 +1,6 @@
 # net_notes
 
-# 2 quick ways to create App with appsettings.json configured
+## 2 quick ways to create App with appsettings.json configured
 
 Create a host container:
 ```cs
@@ -12,7 +12,7 @@ Create a configuration only without any other service:
 var config = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
 ```
 
-# Default loggging
+## Default loggging
 
 Default logging json does not affect Serilog.
 ```json
@@ -24,7 +24,7 @@ Default logging json does not affect Serilog.
   }
 ```
 
-# Serilog
+## Serilog
 
 To use Serilog, include the package `Serilog.AspNetCore`. In the `appsettings.json` configuration file, include the following section:
 
@@ -77,7 +77,9 @@ To use in C# configure the `IHostBuilder`:
 
 ```
 
-# .NET Core project with Windows.Forms support
+# Winforms and Core
+
+## .NET Core project with Windows.Forms support
 
 Edit the project file as shown below (the `PropertyGroup` is a child node of `Project`:
 We change the target framework to `net6.0-windows` and we add the `UseWindowsForms` node and set the content to `true`.
@@ -92,7 +94,7 @@ We change the target framework to `net6.0-windows` and we add the `UseWindowsFor
   </PropertyGroup>
 ```
 
-# Winforms logging with `ILogger`
+## Winforms logging with `ILogger`
 
 The project file of the class library should be edited to allow the use of Windows Forms controls. Also, the project type should be bound to Windows:
 ```xml
