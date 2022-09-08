@@ -4,7 +4,7 @@ va
 
 ## Add custom configuration via extension
 
-`CustomOptions.CustomOptionsSection` is assumed to be the string of the top level correspoding element within the settings json file.
+`CustomOptions.CustomOptionsSection` is assumed to be the string (as a static field) of the top level correspoding element within the settings json file.
 
 ```cs
 public static IServiceCollection AddCustomOptions(
