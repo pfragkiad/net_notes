@@ -84,13 +84,9 @@ To use in C# configure the `IHostBuilder`:
             CreateDefaultBuilder().
             ConfigureServices((context, services) =>
             {
-                services
+                //services
                 //not needed for default builder
-                //.AddLogging(o => o.AddConsole())
-                .Configure<UcareOptions>(context.Configuration.GetSection(UcareOptions.UcareOptionsSection))
-                //.Configure<HostOptions>(options => options.ShutdownTimeout = TimeSpan.FromSeconds(15))
-                .....  
-                ;
+                //.AddLogging(o => o.AddConsole());
             }).UseSerilog((context, configuration) =>
             {
                 //NUGET: Serial.Settings.Configuration
