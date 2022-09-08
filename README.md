@@ -26,7 +26,7 @@ Create a host container:
 IHost app = Host.CreateDefaultBuilder(args).Build();
 var config = app.Services.GetService<IConfiguration>();
 ```
-Create a configuration only without any other service:
+Or create a configuration only without any other service:
 ```cs
 var config = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
 ```
