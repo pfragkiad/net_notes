@@ -1,4 +1,6 @@
-# net_notes
+
+
+# Configuration
 
 ## 2 quick ways to create App with appsettings.json configured
 
