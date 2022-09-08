@@ -2,7 +2,7 @@
 
 # Configuration
 
-## Add custom configuration via extension
+## Add custom config options
 
 `CustomOptions.CustomOptionsSection` is assumed to be the string (as a static field) of the top level correspoding element within the settings json file.
 Sample call to add to services:
