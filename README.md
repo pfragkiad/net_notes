@@ -5,21 +5,15 @@ va
 ## Add custom configuration via extension
 
 `CustomOptions.CustomOptionsSection` is assumed to be the string (as a static field) of the top level correspoding element within the settings json file.
+Sample call to add to services:
 
 ```cs
-public static IServiceCollection AddCustomOptions(
-this IServiceCollection services, HostBuilderContext context)
-{
-return services
-    .Configure<CustomOptions>(context.Configuration.GetSection(CustomOptions.CustomOptionsSection))
-}
-...    
     
 var host = Host
 .CreateDefaultBuilder()
 .ConfigureServices( (context, services) =>
 {
-    services.AddCustomOptions(context);
+    services.Configure<CustomOptions>(context.Configuration.GetSection(CustomOptions.CustomOptionsSection));
 }
 ).Build()
 
