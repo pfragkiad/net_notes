@@ -9,14 +9,21 @@ Sample call to add to services:
 
 ```cs
     
-var host = Host
+var app = Host
 .CreateDefaultBuilder()
 .ConfigureServices( (context, services) =>
 {
     services.Configure<CustomOptions>(context.Configuration.GetSection(CustomOptions.CustomOptionsSection));
 }
 ).Build()
-
+...
+var options = app.Services.GetRequiredService<IOptions<CustomOptions>>().Value;
+```
+To instantiate a `CustomOptions` object we can alternatively use the `IConfiguration` like the example below:
+```cs
+var configuration = app.Services.GetRequiredService<IConfiguration>();
+CustomOptions options = new CustomOptions();
+configuration.GetSection(CustomOptions.CustomOptionsSection).Bind(options);
 ```
 
 ## 2 quick ways to create App with appsettings.json configured
