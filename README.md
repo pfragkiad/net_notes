@@ -24,6 +24,9 @@ To instantiate a `CustomOptions` object we can alternatively use the `IConfigura
 var configuration = app.Services.GetRequiredService<IConfiguration>();
 CustomOptions options = new CustomOptions();
 configuration.GetSection(CustomOptions.CustomOptionsSection).Bind(options);
+
+//or
+options = configuration.GetSection(CustomOptions.CustomOptionsSection).Get<CustomOptions>();
 ```
 
 ## 2 quick ways to create App with appsettings.json configured
