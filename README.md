@@ -41,7 +41,7 @@ Or create a configuration only without any other service:
 var config = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
 ```
 
-## Default loggging
+## Default logging
 
 Default logging json does not affect Serilog.
 ```json
