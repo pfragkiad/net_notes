@@ -13,6 +13,7 @@ var app = Host
 .CreateDefaultBuilder()
 .ConfigureServices( (context, services) =>
 {
+    //to enable tihs Microsoft.Extensions.Hosting must be referenced
     services.Configure<CustomOptions>(context.Configuration.GetSection(CustomOptions.CustomOptionsSection));
 }
 ).Build()
