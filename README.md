@@ -2,6 +2,34 @@
 
 # Configuration
 
+## Add custom configuration files
+```cs
+private static void Initialize()
+{
+host = Host.CreateDefaultBuilder()
+    .ConfigureAppConfiguration(builder => CreateBuilder(builder))
+    .ConfigureServices((context, services) =>
+    {
+	services
+	.AddLogging(o => o.AddConsole())
+	.AddTransient<IRecorder,Recorder>()
+	.AddSingleton<IRecorderFormatFactory,RecorderFormatFactory>()
+	.AddSingleton<IRecorderFactory,RecorderFactory>()
+       ;
+    })
+    .Build();
+}
+
+private static IConfigurationBuilder CreateBuilder(IConfigurationBuilder builder)
+{
+return builder
+    .SetBasePath(Directory.GetCurrentDirectory())
+    .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+    .AddJsonFile($"appsettings.{Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") ?? "Production"}.json", optional: true)
+    .AddEnvironmentVariables();
+}
+```
+
 ## Add custom config options
 
 `CustomOptions.CustomOptionsSection` is assumed to be the string (as a static field) of the top level correspoding element within the settings json file.
