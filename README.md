@@ -138,6 +138,21 @@ To use in C# configure the `IHostBuilder`:
             }); //IHostBuilder
 
 ```
+To configure the `WebApplicationBuilder`:
+
+```cs
+WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
+builder.Host.UseSerilog((context, configuration) =>
+{
+    //NUGET: Serial.Settings.Configuration
+    //for configuration see: https://github.com/serilog/serilog-settings-configuration
+    configuration.ReadFrom.Configuration(context.Configuration); //read Serilog options from appsettings.json
+
+    //configuration.MinimumLevel.Debug();
+    //configuration.WriteTo.Console(restrictedToMinimumLevel:Serilog.Events.LogEventLevel.Information);
+    //configuration.WriteTo.File(path: "logs/myapp.txt", rollingInterval: RollingInterval.Hour);
+}); //IHostBuilder
+```
 
 # Winforms and Core
 
