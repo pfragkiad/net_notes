@@ -224,7 +224,9 @@ host = builder.Build();
 var form = host.Services.GetService<frmMain>();
 Application.Run(form);
 ```
-## Custom minimal app that changes response based on input
+# Minimal API
+
+## Custom endpoint that changes response based on input
 
 ```cs
 app.MapPost("/api/create/{userId}", async (HttpContext context) =>
@@ -236,37 +238,31 @@ app.MapPost("/api/create/{userId}", async (HttpContext context) =>
     var apiKey = context.Request.Query["apiKey"];
 
     // Read the header parameter
-    var authorizationToken = context.Request.Headers["AuthorizationToken"];
-
-    // Read data from the request
-    var contentType = context.Request.ContentType;
+    var contentType = context.Request.Headers["Content-Type"].FirstOrDefault() ?? "application/json";
 
     // Default response data
-    var responseData = $"Received data for User '{userId}' with API Key '{apiKey}' and Authorization Token '{authorizationToken}': ";
+    var responseData = $"Received data for User '{userId}' with API Key '{apiKey}' and Content Type '{contentType}': ";
 
-    if (contentType != null)
+    if (contentType.Contains("application/json"))
     {
-        if (contentType.Contains("application/json"))
+        // If the content type is JSON, parse the JSON data
+        using (var reader = new StreamReader(context.Request.Body, Encoding.UTF8))
         {
-            // If the content type is JSON, parse the JSON data
-            using (var reader = new StreamReader(context.Request.Body, Encoding.UTF8))
-            {
-                var jsonBody = await reader.ReadToEndAsync();
-                responseData += $"JSON: {jsonBody}";
-            }
+            var jsonBody = await reader.ReadToEndAsync();
+            responseData += $"JSON: {jsonBody}";
         }
-        else if (contentType.Contains("text/plain"))
-        {
-            // If the content type is plain text, read it directly
-            var plainTextBody = await context.Request.ReadAsStringAsync();
-            responseData += $"Plain Text: {plainTextBody}";
-        }
-        else
-        {
-            // Unsupported content type
-            context.Response.StatusCode = 415; // Unsupported Media Type
-            responseData = "Unsupported Content Type";
-        }
+    }
+    else if (contentType.Contains("text/plain"))
+    {
+        // If the content type is plain text, read it directly
+        var plainTextBody = await context.Request.ReadAsStringAsync();
+        responseData += $"Plain Text: {plainTextBody}";
+    }
+    else
+    {
+        // Unsupported content type
+        context.Response.StatusCode = 415; // Unsupported Media Type
+        responseData = "Unsupported Content Type";
     }
 
     // Set the response content type
@@ -275,7 +271,6 @@ app.MapPost("/api/create/{userId}", async (HttpContext context) =>
     // Write the response
     await context.Response.WriteAsync(responseData);
 });
-
 ```
 
 
