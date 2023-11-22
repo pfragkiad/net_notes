@@ -273,4 +273,21 @@ app.MapPost("/api/create/{userId}", async (HttpContext context) =>
 });
 ```
 
+# Powershell
+
+List current/new versions of PowerShell:
+```powershell
+winget list --id Microsoft.Powershell
+```
+
+Update PowerShell (minor version):
+```powershell
+winget upgrade --id Microsoft.PowerShell
+```
+
+Upgrade PowerShell (major version):
+```poweshell
+winget uninstall Microsoft.PowerShell
+winget install Microsoft.PowerShell
+```
 
