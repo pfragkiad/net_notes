@@ -293,7 +293,7 @@ winget install Microsoft.PowerShell
 
 # Edit C# project file
 
-Copy item to output directory (preserve newest):
+Copy item to output directory (preserve newest). Other options are (`Always`, `Never`):
 
 ```xml
 <ItemGroup>
