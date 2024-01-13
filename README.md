@@ -291,3 +291,15 @@ winget uninstall Microsoft.PowerShell
 winget install Microsoft.PowerShell
 ```
 
+# Edit C# project file
+
+Copy item to output directory (preserve newest):
+
+```xml
+<ItemGroup>
+<None Update="pers.html">
+<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+</None>
+</ItemGroup>
+
+```
