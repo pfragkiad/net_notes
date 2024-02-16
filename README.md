@@ -119,23 +119,23 @@ To use in C# configure the `IHostBuilder`:
 
 ```cs
  var builder = 
-            Host.
-            CreateDefaultBuilder().
-            ConfigureServices((context, services) =>
-            {
-                //services
-                //not needed for default builder
-                //.AddLogging(o => o.AddConsole());
-            }).UseSerilog((context, configuration) =>
-            {
-                //NUGET: Serial.Settings.Configuration
-                //for configuration see: https://github.com/serilog/serilog-settings-configuration
-                configuration.ReadFrom.Configuration(context.Configuration); //read Serilog options from appsettings.json
+    Host.
+    CreateDefaultBuilder().
+    ConfigureServices((context, services) =>
+    {
+	//services
+	//not needed for default builder
+	//.AddLogging(o => o.AddConsole());
+    }).UseSerilog((context, configuration) =>
+    {
+	//NUGET: Serial.Settings.Configuration
+	//for configuration see: https://github.com/serilog/serilog-settings-configuration
+	configuration.ReadFrom.Configuration(context.Configuration); //read Serilog options from appsettings.json
 
-                //configuration.MinimumLevel.Debug();
-                //configuration.WriteTo.Console(restrictedToMinimumLevel:Serilog.Events.LogEventLevel.Information);
-                //configuration.WriteTo.File(path: "logs/myapp.txt", rollingInterval: RollingInterval.Hour);
-            }); //IHostBuilder
+	//configuration.MinimumLevel.Debug();
+	//configuration.WriteTo.Console(restrictedToMinimumLevel:Serilog.Events.LogEventLevel.Information);
+	//configuration.WriteTo.File(path: "logs/myapp.txt", rollingInterval: RollingInterval.Hour);
+    }); //IHostBuilder
 
 ```
 To configure the `WebApplicationBuilder`:
@@ -155,7 +155,7 @@ builder.Host.UseSerilog((context, configuration) =>
 ```
 ## Add HttpCLientFactory
 
-Add named HttpClientFactory:
+Add named `HttpClientFactory`:
 ```cs
 WebApplicationBuilder builder = WebApplication.CreateBuilders(args);
 IServiceCollection services = builder.Services;
@@ -163,7 +163,7 @@ IConfiguration configuration = builder.Configuration;
 services.AddHttpClient("road", c => c.BaseAddress = new Uri(configuration["RoadRoutingUrl"] ?? "http://localhost:8969/"));
 ```
 
-Add typed HttpClientFactory that accepts all certificates:
+Add typed `HttpClientFactory` that accepts all certificates:
 ```cs
 services.AddHttpClient<MyClient>().ConfigurePrimaryHttpMessageHandler(() =>
 new HttpClientHandler
