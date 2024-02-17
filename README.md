@@ -153,7 +153,7 @@ builder.Host.UseSerilog((context, configuration) =>
     //configuration.WriteTo.File(path: "logs/myapp.txt", rollingInterval: RollingInterval.Hour);
 }); //IHostBuilder
 ```
-## Add HttpCLientFactory
+## Add HttpClientFactory
 
 Add named `HttpClientFactory`:
 ```cs
@@ -184,6 +184,15 @@ public class MyClient
         _httpClient.BaseAddress = new Uri(_options.Url);
     }
 }
+```
+
+## Ignore null entries for JSON output
+
+```cs
+var builder = WebApplication.CreateBuilder(args);
+var services = builder.Services;
+builder.Services.Configure<Microsoft.AspNetCore.Http.Json.JsonOptions>(options =>
+   options.SerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull);
 ```
 
 # Winforms and Core
