@@ -366,3 +366,18 @@ to:
 <Project Sdk="Microsoft.NET.Sdk.Web"> 
 ```
 
+By changing the project type - the VS will reload the project (after confirmation) and will generate a `launchSettings.json` file like the one below:
+```json
+{
+  "profiles": {
+    "TestLib": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:53511;http://localhost:53512"
+    }
+  }
+}
+```
