@@ -344,3 +344,7 @@ Copy item to output directory (preserve newest). Other options are (`Always`, `N
 </ItemGroup>
 
 ```
+
+# .NET ADVENTURES
+
+## Console project 
