@@ -357,8 +357,12 @@ WebApplication? app = null; //cannot find a package to app here to make this val
 
 We typically should change the Project SDK. Edit the project file:
 
+Change 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
-//change to 
-<Project Sdk="Microsoft.NET.Sdk.**Web**"> 
 ```
+to:
+```xml
+<Project Sdk="Microsoft.NET.Sdk.Web"> 
+```
+
