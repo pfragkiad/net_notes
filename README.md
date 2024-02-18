@@ -347,4 +347,18 @@ Copy item to output directory (preserve newest). Other options are (`Always`, `N
 
 # .NET ADVENTURES
 
-## Console project 
+## Console project to WebApp
+
+Guide to convert a console app to a full web app!
+
+```cs
+WebApplication? app = null; //cannot find a package to app here to make this valid.
+```
+
+We typically should change the Project SDK. Edit the project file:
+
+```xml
+<Project Sdk="Microsoft.NET.Sdk">
+//change to 
+<Project Sdk="Microsoft.NET.Sdk.**Web**"> 
+```
