@@ -381,3 +381,16 @@ By changing the project type - the VS will reload the project (after confirmatio
   }
 }
 ```
+## Publish and Run project WITHOUT server
+
+Include the following in the appsettings.json
+
+```json
+"Kestrel": {
+   "EndPoints": {
+     "Http": {
+       "Url": "http://0.0.0.0:5002"
+     }
+   }
+ }
+```
