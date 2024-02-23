@@ -390,7 +390,10 @@ Include the following in the appsettings.json
    "EndPoints": {
      "Http": {
        "Url": "http://0.0.0.0:5002"
-     }
+     },
+      "Https": {
+        "Url": "https://0.0.0.0:5003"
+      }
    }
  }
 ```
