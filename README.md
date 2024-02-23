@@ -394,3 +394,6 @@ Include the following in the appsettings.json
    }
  }
 ```
+
+For the `launchSettings.json` we can setup using the `dotnet run` command :
+
