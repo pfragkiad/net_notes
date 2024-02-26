@@ -97,6 +97,16 @@ var provider = services.BuildServiceProvider();
 var c = provider.GetRequiredService<IConfiguration>();
 System.Console.WriteLine(c["genericBasePath"]);
 ```
+Remember to add the `appsettings.json` file in the project file in order to copy it to the executable directory:
+```xml
+<ItemGroup>
+	<None Update="appsettings.json">
+		<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	</None>
+</ItemGroup>
+```
+
+
 # Hosting
 
 ```sh
