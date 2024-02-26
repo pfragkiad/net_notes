@@ -97,3 +97,15 @@ var provider = services.BuildServiceProvider();
 var c = provider.GetRequiredService<IConfiguration>();
 System.Console.WriteLine(c["genericBasePath"]);
 ```
+# Hosting
+
+```sh
+dotnet add package Microsoft.Extensions.Hosting
+```
+
+```cs
+IHost host = Host
+.CreateDefaultBuilder(args)
+.ConfigureServices((context, services) => { })
+.Build();
+```
