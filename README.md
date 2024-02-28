@@ -195,41 +195,7 @@ builder.Services.Configure<Microsoft.AspNetCore.Http.Json.JsonOptions>(options =
    options.SerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull);
 ```
 
-# Winforms and Core
-
-## .NET Core project with Windows.Forms support
-
-Edit the project file as shown below (the `PropertyGroup` is a child node of `Project`:
-We change the target framework to `net6.0-windows` and we add the `UseWindowsForms` node and set the content to `true`.
-
-```xml
-  <PropertyGroup>
-    <OutputType>Exe</OutputType>
-    <TargetFramework>net6.0-windows</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-    <UseWindowsForms>true</UseWindowsForms>
-  </PropertyGroup>
-```
-
-## Winforms logging with `ILogger`
-
-The project file of the class library should be edited to allow the use of Windows Forms controls. Also, the project type should be bound to Windows:
-```xml
-<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
-	<PropertyGroup>
-		<TargetFramework>net6.0-windows</TargetFramework>
-		<ImplicitUsings>enable</ImplicitUsings>
-		<Nullable>enable</Nullable>
-		<UseWindowsForms>true</UseWindowsForms>
-	</PropertyGroup>
-</Project>
-
-```
-
-The dependencies should appear as below:
-
-![Project dependencies](img/windowsforms.png "WindowsForms dependency").
+# Winforms and Core DI
 
 The dependency injection for Winforms can be set as shown below:
 
@@ -330,19 +296,6 @@ Upgrade PowerShell (major version):
 ```poweshell
 winget uninstall Microsoft.PowerShell
 winget install Microsoft.PowerShell
-```
-
-# Edit C# project file
-
-Copy item to output directory (preserve newest). Other options are (`Always`, `Never`):
-
-```xml
-<ItemGroup>
-	<None Update="pers.html">
-		<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	</None>
-</ItemGroup>
-
 ```
 
 # .NET ADVENTURES
