@@ -46,3 +46,20 @@ We change the target framework to `net6.0-windows` and we add the `UseWindowsFor
     <UseWindowsForms>true</UseWindowsForms>
   </PropertyGroup>
 ```
+
+## Winforms class library
+
+The project file of the class library should be edited to allow the use of Windows Forms controls. Also, the project type should be bound to Windows:
+```xml
+<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+	<PropertyGroup>
+		<TargetFramework>net6.0-windows</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<UseWindowsForms>true</UseWindowsForms>
+	</PropertyGroup>
+</Project>
+```
+
+The dependencies should appear as below:
+![Project dependencies](img/windowsforms.png "WindowsForms dependency").
