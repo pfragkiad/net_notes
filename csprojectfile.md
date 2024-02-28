@@ -11,7 +11,7 @@ Copy item to output directory (preserve newest). Other options are (`Always`, `N
 
 ```
 
-# ASP.NET Core stuff
+# ASP.NET Core support in Class library
 
 Types like `IResult` are available with a `FrameworkReference`, not a `PackageReference`. The project file should be modified, like the example below:
 
@@ -32,4 +32,17 @@ Types like `IResult` are available with a `FrameworkReference`, not a `PackageRe
 </ItemGroup>
 ```
 
+# Winforms and Core
 
+Edit the project file as shown below (the `PropertyGroup` is a child node of `Project`:
+We change the target framework to `net6.0-windows` and we add the `UseWindowsForms` node and set the content to `true`.
+
+```xml
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+  </PropertyGroup>
+```
