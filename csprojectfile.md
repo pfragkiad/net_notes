@@ -1,3 +1,16 @@
+# Add item to Output
+
+Copy item to output directory (preserve newest). Other options are (`Always`, `Never`):
+
+```xml
+<ItemGroup>
+	<None Update="pers.html">
+		<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	</None>
+</ItemGroup>
+
+```
+
 # ASP.NET Core stuff
 
 Types like `IResult` are available with a `FrameworkReference`, not a `PackageReference`. The project file should be modified, like the example below:
@@ -18,3 +31,5 @@ Types like `IResult` are available with a `FrameworkReference`, not a `PackageRe
 	<FrameworkReference Include="Microsoft.AspNetCore.App" />
 </ItemGroup>
 ```
+
+
