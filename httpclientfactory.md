@@ -31,3 +31,43 @@ public class MyClient
     }
 }
 ```
+
+## Catch httpclient exceptions
+
+If we want to catch connection-related exceptions, we should catch the `TaskCanceledException` (defined by the `httpclient.Timeout` property) and the `HttpRequestException` which happens if there is any connectivity issue and the Timeout has not already passed.
+
+```cs
+try
+{
+
+    var response = await _httpClient.GetAsync(url);
+
+    string responseText = await response.Content.ReadAsStringAsync();
+
+    if (response.IsSuccessStatusCode)
+        return RouteResponse.Parse(responseText, includeCoordinates)!;
+
+    ErrorResponse? errorResponse = ErrorResponse.Parse(responseText);
+    return Fail(_logger, "Routing.UnknownError", responseText);
+}
+catch (TaskCanceledException) //Timeout
+{
+    return Fail(_logger, "Routing.Timeout",
+        "Request to the routing engine failed due to timeout ({timeout} seconds).", ValidatorLogTypeIfError.Error,
+        _httpClient.Timeout.TotalSeconds);
+}
+catch (HttpRequestException) //Connection issue
+{
+    return Fail(_logger, "Routing.NetworkIssue",
+    "Request to the routing engine failed due to network connectivity issue.");
+}
+
+catch (Exception ex)
+{
+    return Fail(_logger, $"Routing.{ex.GetType().Name}", ex.Message);
+}
+
+
+```
+
+
