@@ -120,11 +120,14 @@ IHost host = Host
 .Build();
 ```
 
-## Swagger
+# Swagger
 
 ```sh
 dotnet add package Swashbuckle.AspNetCore
+dotnet add package Microsoft.AspNetCore.OpenApi
 ```
+
+
 
 Before building the host add the `AddEndPointApiExplorer` and `AddSwaggerGen` extension calls. After the building add the `UseSwagger`, `UseSwaggerUI` calls:
 
