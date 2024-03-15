@@ -7,7 +7,8 @@ dotnet add package Microsoft.AspNetCore.OpenApi
 
 
 
-Before building the host, add the `AddEndPointApiExplorer` and `AddSwaggerGen` extension calls. After the building, add the `UseSwagger`, `UseSwaggerUI` calls:
+Before building the host, add the `AddEndPointApiExplorer` and `AddSwaggerGen` extension calls. After the building, add the `UseSwagger`, `UseSwaggerUI` calls.
+To allow the `WithOpenApi` methods called by the endpoints, we need the second assembly (i.e. `Microsoft.AspNetCore.OpenApi`):
 
 ```cs
 IServiceCollection services = builder.Services;
