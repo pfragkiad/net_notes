@@ -32,8 +32,6 @@ Add example endpoints at the end:
 ```cs
 var gRouting = app.MapGroup("/routing").WithTags("Routing");
 
-
-//https://learn.microsoft.com/en-us/aspnet/core/fundamentals/native-aot?view=aspnetcore-8.0
 gRouting.MapGet("/status", GetEngineStatus)
 .Produces<EngineStatus>()
 .WithName("routineStatus")
