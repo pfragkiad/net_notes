@@ -119,3 +119,24 @@ IHost host = Host
 .ConfigureServices((context, services) => { })
 .Build();
 ```
+
+## Swagger
+
+```sh
+dotnet add package Swashbuckle.AspNetCore
+```
+
+Before building the host add the `AddEndPointApiExplorer` and `AddSwaggerGen` extension calls:
+
+```cs
+IServiceCollection services = builder.Services;
+services.AddEndpointsApiExplorer();
+services.AddSwaggerGen(options =>
+{
+    options.SwaggerDoc("v1", new() { Title = "GreenLight v1", Version = "v1" });
+});
+```
+
+
+
+##
