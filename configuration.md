@@ -1,5 +1,23 @@
 # Configuration
 
+# Manual configuration
+
+Add the required packages first:
+
+```bash
+dotnet add package Microsoft.Extensions.Configuration
+dotnet add package Microsoft.Extensions.Configuration.Json
+dotnet add package Microsoft.Extensions.Configuration.EnvironmentVariables
+```
+
+```cs
+Configuration = new ConfigurationBuilder()
+	.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+	.AddJsonFile($"appsettings.{Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") ?? "Production"}.json", optional: true)
+	.AddEnvironmentVariables()
+	.Build();
+```
+
 ## Add custom configuration files
 ```cs
 private static void Initialize()
