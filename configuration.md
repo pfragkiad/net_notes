@@ -132,7 +132,7 @@ To use Serilog, include the package `Serilog.AspNetCore`. In the `appsettings.js
 ```
 
 
-JSON settings for Serilog with exceptions (e.g. Microsoft.AspNetCore in this case):
+JSON settings for Serilog with exceptions (e.g. `Microsoft.AspNetCore` in this case):
 
 ```json
  "Serilog": {
