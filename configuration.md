@@ -140,6 +140,7 @@ JSON settings for Serilog with exceptions (e.g. `Microsoft.AspNetCore` in this c
      "Default": "Debug",
      "Override": {
        "Microsoft.AspNetCore": "Warning",
+        "Microsoft": "Information",
        "System": "Warning"
      }
    },
