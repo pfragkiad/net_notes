@@ -131,6 +131,29 @@ To use Serilog, include the package `Serilog.AspNetCore`. In the `appsettings.js
   }
 ```
 
+
+JSON settings for Serilog with exceptions (e.g. Microsoft.AspNetCore in this case):
+
+```json
+ "Serilog": {
+   "MinimumLevel": {
+     "Default": "Debug",
+     "Override": {
+       "Microsoft.AspNetCore": "Warning",
+       "System": "Warning"
+     }
+   },
+     "WriteTo": [
+       {
+         "Name": "Console",
+         "Args": {
+           "restrictedToMinimumLevel": "Debug"
+         }
+       }
+     ]
+   }
+```
+
 To use in C# configure the `IHostBuilder`:
 
 ```cs
