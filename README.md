@@ -1,6 +1,12 @@
 `Da Notes`
 
-## Ignore null entries for JSON output
+# dotnet best commands
+
+```powershell
+dotnet publish -p:PublishSingleFile=true --self-contained false -c Release
+```
+
+# Ignore null entries for JSON output
 
 ```cs
 var builder = WebApplication.CreateBuilder(args);
