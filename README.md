@@ -2,6 +2,9 @@
 
 # dotnet best commands
 
+https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-publish
+
+
 ```powershell
 dotnet publish -p:PublishSingleFile=true --self-contained false -c Release
 ```
