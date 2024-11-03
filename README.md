@@ -2,7 +2,7 @@
 
 # dotnet best commands
 
-Original source with full info:
+Original source with full info for this:
 
 https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-publish
 
